@@ -1,25 +1,20 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import {BrowserRouter as Router, Switch,  Route} from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import ExercisesContainer from './pages/ExercisesContainer';
+import NewExercisesContainer from './pages/NewExercisesContainer';
+import NotFound from './component/NotFound'
+
+const App = () =>(
+  <Router>
+    <Switch>
+
+        <Route exact path="/" component= {ExercisesContainer} />
+        <Route exact path="/exercises" component= {NewExercisesContainer} />
+        <Route component= {NotFound} />
+    </Switch>   
+</Router>
+)
 
 export default App;
